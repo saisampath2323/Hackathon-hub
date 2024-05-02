@@ -1,0 +1,104 @@
+.myhackathon{
+    display: flex;
+    height: 100px;
+    width: 400px;
+    background-color: azure;
+    padding: 10px;
+border-radius: 10px;
+}
+.myhackathon1{
+   
+    display: flex;
+    height: 300px;
+    width: 900px;
+    background-color: white;
+    padding: 15px;
+border-radius: 10px;
+  
+}
+.myhackathon11{
+    height: 800px;
+    background-color: white;
+    width: 1000px;
+}
+.matter{
+    margin-left: 10px;
+  
+}
+.submatter{
+    color: gray;
+    font-size: small;
+}
+.Date{
+    font-size: small;
+    margin-left: 5px;
+   
+}
+.icons{
+    margin-top: 4px;
+}
+.grayy{
+     color: rgb(89, 84, 79);
+}
+.matter1,title1{
+   margin-left: 20px;
+    font-size: xx-large;
+}
+.submatter1{
+    color: gray;
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+}
+.Date1{
+   
+    font-size: large;
+    margin-left: 5px;
+   
+}
+inko1{
+    display: flex;
+    gap: 15px;
+   ;
+}
+.details1{
+   font-size: large;
+   margin-bottom: 20px;
+}
+.contact1{
+margin-top:20px;
+font-size: xx-large;
+}
+.contact11{
+    font-size: large;
+    color: blue;
+    margin-left: 5px;
+}
+.below1{
+    
+    height: 80px;
+    width:90%;
+    background-color:rgb(247 247 247);
+box-shadow: 10px;
+border-radius: 10px;
+padding: 10px;
+margin: 10px;
+}
+.prize1{
+    color: blue;
+    font-size: 50px;
+    
+}
+.prize11{
+    color: black;
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 7px;
+}
+.submatter11{
+    padding: 5px;
+    margin-left: 10px;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
