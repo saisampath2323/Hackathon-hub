@@ -12,13 +12,14 @@ import CodingPlatforms from "./pages/codingPlatforms";
 import OneHackathon from "./pages/Hackathons/oneHackathon";
 import CreateHackathon from "./pages/Hackathons/CreateHackathon";
 import AllHackathons from "./pages/allHackathons";
+import Signuppage from "./pages/signuppage";
 
 const page=()=>{
   // const i=Cookies.get('token')?2:1;
   const [number,setnumber]=useState(1);
   const logoutHandler = () => {
     Cookies.remove('token');
-    // Redirect to login page or wherever appropriate
+    
     setnumber(1);
   
 };
@@ -43,6 +44,7 @@ const page=()=>{
     {number==4?<CreateHackathon ></CreateHackathon>:console.log("4")}
     {number==5?<AllHackathons  ></AllHackathons>:console.log("5")}
     {number==6?<Leaderboard></Leaderboard>:console.log("6")}
+    {number==7?<Signuppage setpage={setpage}></Signuppage>:console.log("7")}
     </div>
      
        

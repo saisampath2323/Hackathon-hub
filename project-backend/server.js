@@ -61,6 +61,41 @@ app.post('/login', async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   });
+
+  app.post('/signup', async (req, res) => {
+    const { email, password, codechefId, leetcodeId } = req.body;
+  
+    try {
+      // Check if the user already exists
+      const existingUser = await User.findOne({ email });
+      if (existingUser) {
+        return res.status(409).json({ message: 'User already exists' });
+      }
+  
+      // Hash the password before saving it to the database
+      // const hashedPassword = await bcrypt.hash(password, 10);
+  
+      // Create a new user
+      const newUser = new User({
+        email,
+        password: password,
+        codechefId,
+        leetcodeId,
+      });
+  
+      // Save the user to the database
+      await newUser.save();
+  
+      // Generate a token
+      const token = jwt.sign({ email: newUser.email }, secretKey);
+  
+      // Respond with the token
+      res.status(201).json({ token });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
   app.get('/profile', verifyToken, async (req, res) => {
    
     const { email } = req.user;
@@ -83,7 +118,6 @@ app.post('/login', async (req, res) => {
   
 function verifyToken(req, res, next) {
     const token = req.headers['authorization'];
-  
     if (!token) {
       return res.status(401).json({ message: 'Unauthorized' });
     }

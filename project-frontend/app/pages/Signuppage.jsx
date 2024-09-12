@@ -3,26 +3,31 @@ import "./Loginpage.css";
 import { useNavigate } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Cookies from "js-cookie";
-const Loginpage = ({setpage}) => {
+const Signuppage = ({setpage}) => {
     
     //const navigate=useNavigate();
     let token=null;
     useEffect(()=>{
         if(Cookies.get('token')!=null){
-          setpage(2)
+          setpage(2);
         }
       })
       const [email,setemail]=useState(null);
       const [password,setpassword]=useState(null);
+      const [codechefId,setCodechefId]=useState(null);
+      const [leetcodeId,setleetcodeId]=useState(null);
       
     const loginhandler=async()=>{
        const  data={
             
             email:`${email}`,
-            password:`${password}`
+            password:`${password}`,
+            codechefId:`${codechefId}`,
+            leetcodeId:`${leetcodeId}`
+            
            }
            console.log(data);
-           const res = await fetch("http://localhost:3001/login", {
+           const res = await fetch("http://localhost:3001/signup", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -76,12 +81,12 @@ const Loginpage = ({setpage}) => {
                 </div> */}
                 <div className="form-container sign-in">
                     <form>
-                        <h1>Sign In</h1>
+                        <h1>Sign Up</h1>
                        
                         <div className="social-icons">
                             <a href="#" className="icon"><i className="fa-brands fa-google-plus-g"></i></a>
-                        </div>
-                        <span>Enter your details</span>
+                         </div>
+                        <span>Enter your details</span> 
                         
                        
                         <input onChange={(e)=>{
@@ -92,16 +97,19 @@ const Loginpage = ({setpage}) => {
                             setpassword(e.target.value);
                             }
                         } type="password" placeholder="Password" />
+                         <input onChange={(e)=>{
+                                 setCodechefId(e.target.value);
+                        }} type="text" placeholder="Codechef Id" />
+                        <input onChange={
+                            (e)=>{
+                            setleetcodeId(e.target.value);
+                            }
+                        } type="text" placeholder="Leetcode Id" />
                         
                        
                         <button onClick={(e)=>{
                            e.preventDefault();
                             loginhandler();
-                        }}>Sign In</button>
-                        <div className="text-gray-600 italic my-2">Not have an account</div>
-                        <button onClick={(e)=>{
-                           e.preventDefault();
-                            setpage(7);
                         }}>Sign up</button>
                     </form>
                 </div>
@@ -126,4 +134,4 @@ const Loginpage = ({setpage}) => {
     );
 };
 
-export default Loginpage;
+export default Signuppage;

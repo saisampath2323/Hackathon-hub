@@ -5,27 +5,27 @@ const CodingPlatforms=(token)=>{
    const [data,setdata]=useState(null);
    const [cdata,setcdata]=useState(null);
     useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const token = Cookies.get('token');
-            const requestOptions = {
-              method: 'GET',
-              headers: {
-                'authorization':token
-              }
-            };
-            const response = await fetch("http://localhost:3001/api/leetcode", requestOptions);
-            if (!response.ok) {
-              throw new Error('Failed to fetch data');
-            }
-        const pdata = await response.json();
-         setdata(pdata);
-         console.log(pdata);
-          } catch (error) {
-            console.error('Error:', error);
-            // Handle error
-          }
-        };
+        // const fetchData = async () => {
+        //   try {
+        //     const token = Cookies.get('token');
+        //     const requestOptions = {
+        //       method: 'GET',
+        //       headers: {
+        //         'authorization':token
+        //       }
+        //     };
+        //     const response = await fetch("http://localhost:3001/api/leetcode", requestOptions);
+        //     if (!response.ok) {
+        //       throw new Error('Failed to fetch data');
+        //     }
+        // const pdata = await response.json();
+        //  setdata(pdata);
+        //  console.log(pdata);
+        //   } catch (error) {
+        //     console.error('Error:', error);
+        //     // Handle error
+        //   }
+        // };
         const fetchDataC = async () => {
             try {
               const token = Cookies.get('token');
@@ -48,7 +48,7 @@ const CodingPlatforms=(token)=>{
             }}
     
         fetchDataC();
-        fetchData();
+       // fetchData();
         }, []);
     
     return (
