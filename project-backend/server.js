@@ -14,8 +14,7 @@ const PORT = 3001;
 
 
 const secretKey ="nFmJ29qxqgMssJ7gxhriwE+1r8Awp8egXnpRkC3CjIM=";
-// const Userr= new User({email:"milavarapusaisampath@gmail.com",password:"saisampath123",codechefId:"saisampath23",leetcodeId:"saisampath123"});
-// Userr.save();
+
 app.use(cors());
 app.use(bodyParser.json()); 
 app.use("/api",cpPlatforms)
